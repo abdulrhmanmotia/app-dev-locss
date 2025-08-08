@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل بيانات الطلاب</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .student-form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .form-title {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تعديل بيانات الطلاب</h1>
+        
+        {% for student in students %}
+        <div class="student-form">
+            <h2 class="form-title">تعديل بيانات الطالب: {{ student.name }}</h2>
+            
+            <div class="form-group">
+                <label for="total-{{ student.id }}">المجموع الكلي:</label>
+                <input type="number" id="total-{{ student.id }}" value="{{ student.total }}">
+            </div>
+            
+            <h3>درجات المقررات:</h3>
+            {% for subject, mark in student.marks.items %}
+            <div class="form-group">
+                <label for="{{ subject }}-{{ student.id }}">{{ subject }}:</label>
+                <input type="number" id="{{ subject }}-{{ student.id }}" value="{{ mark }}">
+            </div>
+            {% endfor %}
+            
+            <button type="submit" class="submit-btn">حفظ التعديلات</button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
