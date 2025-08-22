@@ -1,0 +1,158 @@
+/* نمط مخصص لنظام إدارة الطلاب */
+
+/* إعدادات عامة للنص العربي */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+/* تخصيص الهيدر */
+header .container h1 {
+    font-weight: bold;
+}
+
+header nav a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #f8f9fa !important;
+    text-decoration: underline;
+}
+
+/* تخصيص الكروت */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: bold;
+}
+
+/* تخصيص الجداول */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* تخصيص البطاقات الملونة */
+.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.bg-primary {
+    background-color: #007bff !important;
+}
+
+/* تخصيص الأزرار */
+.btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* تخصيص الباجات */
+.badge {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+/* تخصيص الفوتر */
+footer {
+    margin-top: auto;
+    background-color: #343a40 !important;
+}
+
+/* تخصيص النماذج */
+.form-select, .form-control {
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* تحسينات متجاوبة */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.9em;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 6px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* تأثيرات إضافية */
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* تخصيص العناوين */
+h1, h2, h3, h4, h5, h6 {
+    color: #343a40;
+    font-weight: bold;
+}
+
+/* تخصيص الروابط */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}  
+
+{% block title %}نموذج الشكر للطلاب{% endblock %}
+
+{% block content %}
+<main class="container my-4">
+    <h2>نموذج الشكر للطلاب</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">إرسال</button>
+    </form>
+</main>
+{% endblock %}
