@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}الصفحة الرئيسية - نظام إدارة الطلاب{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">مرحباً بكم في نظام إدارة الطلاب</h2>
+
+        <!-- إحصائيات عامة -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{ total_students }}</h3>
+                        <p class="card-text">إجمالي الطلاب</p>
+                        <a href="{% url 'students:students_list' %}" class="btn btn-light">عرض الطلاب</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{ total_teachers }}</h3>
+                        <p class="card-text">إجمالي المعلمين</p>
+                        <a href="{% url 'students:teachers_list' %}" class="btn btn-light">عرض المعلمين</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- إحصائيات الصفوف -->
+        <div class="card">
+            <div class="card-header">
+                <h4>توزيع الطلاب حسب الصفوف</h4>
+            </div>
+            <div class="card-body">
+                {% if grades_stats %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>الصف</th>
+                                <th>عدد الطلاب</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for grade_stat in grades_stats %}
+                            <tr>
+                                <td>الصف {{ grade_stat.grade }}</td>
+                                <td><span class="badge bg-primary">{{ grade_stat.count }}</span></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    <p class="mb-0">لا توجد بيانات طلاب حتى الآن. يمكنك إضافة الطلاب من <a href="/admin/">لوحة الإدارة</a>.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
